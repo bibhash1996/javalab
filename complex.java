@@ -25,4 +25,18 @@ complex mult(complex b)
   mul.img = b.img*this.real + this.img-b.real;
   return mul;
 }
+complex div(complex b)
+{
+  complex conj = new complex();
+  conj.real=b.real;
+  conj.img=-1*b.img;
+  complex num=new complex();
+  num = this.mult(conj);
+  complex din = new complex();
+  din = b.mult(conj);
+  num.real/=din.real;
+  num.img/=din.real;
+  
+  return num;
+}
 }
